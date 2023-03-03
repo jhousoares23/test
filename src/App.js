@@ -1,29 +1,26 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AppNavbar from './components/AppNavbar';
+import HomePage from './pages/HomePage';
+import BudgetListPage from './pages/BudgetListPage';
+import BudgetPage from './pages/BudgetPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <AppNavbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/orcamentos" element={<BudgetListPage />} />
+          <Route path="/orcamentos/:id" element={<BudgetPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
+//olá 
+
 export default App;
+
